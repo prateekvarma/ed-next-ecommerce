@@ -5,7 +5,7 @@ import { PrismaClient } from "@prisma/client";
 
 const prisma = new PrismaClient();
 
-export const options = {
+export const authOptions = {
   adapter: PrismaAdapter(prisma),
   providers: [
     GoogleProvider({
@@ -15,4 +15,4 @@ export const options = {
   ],
 };
 
-export default NextAuth(options);
+export default NextAuth(authOptions);
