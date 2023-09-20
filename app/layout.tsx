@@ -18,14 +18,12 @@ export default async function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
-  const session = await getServerSession(authOptions)
-  console.log('Thy session: ', session);
-  
+  const session = await getServerSession(authOptions);
 
   return (
     <html lang="en">
-      <body className={inter.className}>
-        <Nav />
+      <body className="mx-64">
+        <Nav user={session?.user} expires={session?.expires as string} />
         {children}
       </body>
     </html>
